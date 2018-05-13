@@ -40,7 +40,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
     @Override
     public void onBindViewHolder(BindingViewHolder<ItemFlowBinding> holder, int position) {
         holder.getBinding().title.setText("The title");
-        holder.getBinding().summary.setText("item" + position);
+        holder.getBinding().summary.setText("Finance Magnates周三撰文指出，有两件事可能导致了这一走势——两个不知名的人卖出了价值数千万美元的加密货币；纽约总检察长办公室宣布，将对加密货币交换行业展开调查。" + position);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
                     }
                     FlowViewModel viewModel = dataList.get(position);
                     viewModel.setLike(!viewModel.isLike());
-                    binding.like.setText(viewModel.isLike()?"liked":"cancel like");
+                    binding.like.setText(viewModel.isLike()?"liked":"unlike");
                     binding.like.setCompoundDrawablesWithIntrinsicBounds(0, viewModel.isLike()?R.drawable.vd_star_filled:R.drawable.vd_star,0,0);
                 }
             }
@@ -84,7 +84,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
                     return;
                 }
                 FlowViewModel viewModel = dataList.get(position);
-                binding.like.setText(viewModel.isLike()?"cancel like":"like");
+                binding.like.setText(viewModel.isLike()?"unlike":"like");
                 binding.like.setCompoundDrawablesWithIntrinsicBounds(0, viewModel.isLike()?R.drawable.vd_star_filled:R.drawable.vd_star,0,0);
                 Resources resources = binding.getRoot().getResources();
                 binding.like.setBackgroundColor(viewModel.isLike()? Color.parseColor("#E85063"):Color.parseColor("#38C499"));
