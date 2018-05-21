@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.royorange.lib.swipeopetionlib;
+package com.royorange.lib.swipelayoutlib;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -33,7 +33,7 @@ import android.view.animation.Interpolator;
 
 import java.util.ArrayList;
 
-public class SwipeOptionLayout extends ViewGroup {
+public class SwipeLayout extends ViewGroup {
     private static final Interpolator defaultInterpolator = new FastOutLinearInInterpolator();
     private static final int SpeedSlop = 1000;
     private static final int MOVE_SLOP = 10;
@@ -69,16 +69,16 @@ public class SwipeOptionLayout extends ViewGroup {
     }
 
 
-    public SwipeOptionLayout(Context context) {
+    public SwipeLayout(Context context) {
         super(context);
     }
 
-    public SwipeOptionLayout(Context context, AttributeSet attrs) {
+    public SwipeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context,attrs,0);
     }
 
-    public SwipeOptionLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SwipeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context,attrs,defStyleAttr);
     }
@@ -350,9 +350,17 @@ public class SwipeOptionLayout extends ViewGroup {
                     }else {
                         //取消操作
                         if(velocity>0){
-                            collapse();
+                            if(isSwipeToLeft||isSwipeToTop){
+                                expand();
+                            }else {
+                                collapse();
+                            }
                         }else {
-                            expand();
+                            if(isSwipeToLeft||isSwipeToTop){
+                                collapse();
+                            }else {
+                                expand();
+                            }
                         }
 
                     }

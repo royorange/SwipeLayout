@@ -1,4 +1,4 @@
-package com.royorange.swipeoptionlayout.adapter;
+package com.royorange.swipelayout.adapter;
 
 /**
  * Created by Roy on 2018/4/26.

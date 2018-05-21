@@ -1,4 +1,4 @@
-package com.royorange.swipeoptionlayout.adapter;
+package com.royorange.swipelayout.adapter;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
