@@ -350,17 +350,9 @@ public class SwipeOptionLayout extends ViewGroup {
                     }else {
                         //取消操作
                         if(velocity>0){
-                            if(isSwipeToLeft||isSwipeToTop){
-                                expand();
-                            }else {
-                                collapse();
-                            }
+                            collapse();
                         }else {
-                            if(isSwipeToLeft||isSwipeToTop){
-                                collapse();
-                            }else {
-                                expand();
-                            }
+                            expand();
                         }
 
                     }

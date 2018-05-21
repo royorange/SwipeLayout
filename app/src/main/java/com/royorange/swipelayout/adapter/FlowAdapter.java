@@ -1,4 +1,4 @@
-package com.royorange.swipeoptionlayout.adapter;
+package com.royorange.swipelayout.adapter;
 
 import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
@@ -69,7 +69,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
                     }
                     FlowViewModel viewModel = dataList.get(position);
                     viewModel.setLike(!viewModel.isLike());
-                    binding.like.setText(viewModel.isLike()?"liked":"not like");
+                    binding.like.setText(viewModel.isLike()?"liked":"unlike");
                     binding.like.setCompoundDrawablesWithIntrinsicBounds(0, viewModel.isLike()?R.drawable.vd_star_filled:R.drawable.vd_star,0,0);
                 }
             }
@@ -82,7 +82,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
                     return;
                 }
                 FlowViewModel viewModel = dataList.get(position);
-                binding.like.setText(viewModel.isLike()?"cancel like":"like");
+                binding.like.setText(viewModel.isLike()?"unlike":"like");
                 binding.like.setCompoundDrawablesWithIntrinsicBounds(0, viewModel.isLike()?R.drawable.vd_star_filled:R.drawable.vd_star,0,0);
                 Resources resources = binding.getRoot().getResources();
                 binding.like.setBackgroundColor(viewModel.isLike()? Color.parseColor("#E85063"):Color.parseColor("#38C499"));
