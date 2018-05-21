@@ -7,7 +7,7 @@
             name="item"
             type="com.royorange.swipeoptionlayout.adapter.FlowViewModel"/>
     </data>
-    <com.royorange.lib.swipeopetionlib.SwipeOptionLayout
+    <SwipeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -42,5 +42,5 @@
             android:textColor="@android:color/white"
             android:drawableTop="@{@drawable/vd_star}"
             android:background="#38C499"/>
-    </com.royorange.lib.swipeopetionlib.SwipeOptionLayout>
+    </SwipeLayout>
 </layout>

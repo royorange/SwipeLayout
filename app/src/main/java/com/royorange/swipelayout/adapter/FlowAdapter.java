@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.royorange.lib.swipeopetionlib.SwipeOptionLayout;
+import com.royorange.lib.swipelayoutlib.SwipeLayout;
 import com.royorange.swipeoptionlayout.R;
 import com.royorange.swipeoptionlayout.databinding.ItemFlowBinding;
 
@@ -25,8 +25,6 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
     public FlowAdapter() {
         for(int i =0;i<20;i++){
             FlowViewModel flowViewModel = new FlowViewModel();
-            flowViewModel.setTitle("title" + i);
-            flowViewModel.setSummary("item" + i);
             dataList.add(flowViewModel);
         }
     }
@@ -39,7 +37,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
 
     @Override
     public void onBindViewHolder(BindingViewHolder<ItemFlowBinding> holder, int position) {
-        holder.getBinding().title.setText("The title");
+        holder.getBinding().title.setText("This is title" + position);
         holder.getBinding().summary.setText("item" + position);
     }
 
@@ -50,7 +48,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
 
     private BindingViewHolder initHolder(final ItemFlowBinding binding){
         final BindingViewHolder holder = new BindingViewHolder(binding);
-        binding.container.setListener(new SwipeOptionLayout.SwipeListener() {
+        binding.container.setListener(new SwipeLayout.SwipeListener() {
             boolean isActionFinished = true;
             @Override
             public void onSwipe(float percent) {
@@ -71,7 +69,7 @@ public class FlowAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemFlow
                     }
                     FlowViewModel viewModel = dataList.get(position);
                     viewModel.setLike(!viewModel.isLike());
-                    binding.like.setText(viewModel.isLike()?"liked":"cancel like");
+                    binding.like.setText(viewModel.isLike()?"liked":"not like");
                     binding.like.setCompoundDrawablesWithIntrinsicBounds(0, viewModel.isLike()?R.drawable.vd_star_filled:R.drawable.vd_star,0,0);
                 }
             }

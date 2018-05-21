@@ -1,1 +1,1 @@
-include ':app', ':swipeopetionlib'
+include ':app', ':swipelayoutlib'
